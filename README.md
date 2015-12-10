@@ -7,6 +7,8 @@ Image Classification Hackathon
 #Usage:
 
 ##First time setup:
+    python get-pip.py --user
+	[WINDOWS] Add "C:\Python34\Scripts\" to your PATH environement variable
     pip install -r requirements.txt
     pip install virtualenvwrapper-win
     mkvirtualenv daryl
