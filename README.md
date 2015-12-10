@@ -8,9 +8,15 @@ Image Classification Hackathon
 
 ##First time setup:
     pip install -r requirements.txt
+    #WINDOWS
     pip install virtualenvwrapper-win
     mkvirtualenv daryl
     workon daryl
+    #UBUNTU
+    pip install virtualenvwrapper
+    #Still UBUNTU, Add the following lines to your .bashrc
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/local/bin/virtualenvwrapper.sh
 
 ##After each pull:
     pip install -r requirements.txt
@@ -20,4 +26,10 @@ Image Classification Hackathon
     pip freeze > requirements.txt
 
 ##To run server:
+    cd daryl
     python manage.py runserver
+
+##To view:
+Go to http://127.0.0.1:8000 
+or
+    curl 127.0.0.1:8000
