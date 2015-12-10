@@ -3,7 +3,8 @@ Image Classification Hackathon
 
 #Team Members
  - Jared
-#Usage
+
+#Usage:
 
 ##First time setup:
     pip install -r requirements.txt
