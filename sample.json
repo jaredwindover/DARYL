@@ -1,22 +1,22 @@
 {
-    'categories' : [
-	'A',
-	'B',
-	'C',
-	'D'
+    "categories" : [
+	"A",
+	"B",
+	"C",
+	"D"
     ],
-    'images' : [
+    "images" : [
 	{
-	    'name' : 'img1',
-	    'category' : 3
+	    "name" : "img1",
+	    "category" : 3
 	},
 	{
-	    'name' : 'img2',
-	    'category' : 1
+	    "name" : "img2",
+	    "category" : 1
 	},
 	{
-	    'name' : 'img3',
-	    'category' : 4
+	    "name" : "img3",
+	    "category" : 4
 	}
     ]
 }
