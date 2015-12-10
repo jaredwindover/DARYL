@@ -10,15 +10,16 @@ Image Classification Hackathon
     python get-pip.py --user
 	[WINDOWS] Add "C:\Python34\Scripts\" to your PATH environement variable
     pip install -r requirements.txt
-    #WINDOWS
-    pip install virtualenvwrapper-win
+        [WINDOWS]
+        pip install virtualenvwrapper-win
+
+        [UBUNTU]
+        pip install virtualenvwrapper
+        #Still UBUNTU, Add the following lines to your .bashrc
+        export WORKON_HOME=$HOME/.virtualenvs
+        source /usr/local/bin/virtualenvwrapper.sh
     mkvirtualenv daryl
     workon daryl
-    #UBUNTU
-    pip install virtualenvwrapper
-    #Still UBUNTU, Add the following lines to your .bashrc
-    export WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
 
 ##After each pull:
     pip install -r requirements.txt
