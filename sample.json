@@ -7,15 +7,15 @@
     ],
     "images" : [
 	{
-	    "name" : "img1",
+	    "filename" : "img1",
 	    "category" : 3
 	},
 	{
-	    "name" : "img2",
+	    "filename" : "img2",
 	    "category" : 1
 	},
 	{
-	    "name" : "img3",
+	    "filename" : "img3",
 	    "category" : 4
 	}
     ]

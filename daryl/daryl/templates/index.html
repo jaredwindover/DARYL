@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<script src=""></script>
+		<script src=""></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<div class="table-container">
+			<table class="image-table">
+				<tr>
+					{% for img in images %}
+					<td>
+						<img class="image-source" src="{{img.filepath}}">
+					</td>
+					{% endfor %}
+				</tr>
+				{% for cat in categories %}
+				<tr>
+					{% for img in images %}
+					<td>
+						<input type="radio" name="category" class="category-radio-btn">
+					</td>
+					{% endfor %}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>
