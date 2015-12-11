@@ -24,10 +24,10 @@ class Command(BaseCommand):
                                 'categoryIndex': 2
                         },
                         {
-                                'filename': 'star.jpg',
+                                'filename': 'star1.jpg',
                                 'categoryIndex': 2
                         }],
-                        'categories': ['A','B','C']
+                        'categories': ['Apple','Panda','Starbucks', 'Other']
                 }
                 categories = [Category.objects.create(name = cat) for cat in data['categories']]
                 for img in data['images']:
