@@ -8,7 +8,15 @@
   </head>
   <body>
     <div class="table-container">
-      <form 
+     <form
+     id="newCat"
+     method="POST"
+     action="/">
+	{% csrf_token %}
+     </form>
+
+      <form
+     id="update"
 	 method="POST"
 	 action="/">
 	{% csrf_token %}
@@ -23,25 +31,37 @@
 	    </td>
 	    {% endfor %}
 	    <td>
-	      <input
+	     <input
+         form = "update"
 		 type="submit">
 	    </td>
+        <input
+          form="newCat"
+          type="hidden"
+          name="action"
+          value="new_cat">
+        <td>
+            <input form="newCat" type="submit" value="Add new category" >
+            <input form="newCat" type="text" name ="name">
+        </td>
 	  </tr>
 	  {% for img in images %}
 	  <tr>
 	    <td>
-	      <img 
+	      <img
 		 class="image-source"
 		 src="{% static 'img/'|add:img.filename %}">
 	    </td>
 		<input
+           form="update"
 		   type="hidden"
 		   name="action"
 		   value="update">
 	    {% for cat in categories %}
 	    <td>
-	      <input 
-		 type="radio" 
+	      <input
+         form="update"
+		 type="radio"
 		 name="category_{{ img.filename }}"
 		 class="category-radio-btn"
 		 value="{{ cat.name }}"
@@ -53,7 +73,6 @@
 	  </tr>
 	  {% endfor %}
 	</table>
-      </form>
     </div>
   </body>
 </html>
