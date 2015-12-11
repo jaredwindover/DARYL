@@ -15,25 +15,30 @@ def index(request):
 	data = json.loads(open('../sample.json').read())
 	cnt = 1
 	for d in data:
-		print(d)
+            print(d)
 
 	# Category.clean()
 	# Image.clean()
 	for cat in data['categories']:
-		name = cat
-		Category.objects.create(name=name,category_id=cnt)
-		# Category.save()
-		cnt += 1
+            print(cat)
+            name = cat
+            Category.objects.create(name=name,category_id=cnt)
+            # Category.save()
+            cnt += 1
 	for img in data['images']:
-		filename = img['filename']
-		category = img['category']
-		Image.objects.create(filename=filename,category=category)
-		# Image.save()
+            filename = img['filename']
+            category = img['category']
+            Image.objects.create(filename=filename,category=category)
+            # Image.save()
 	image_list = Image.objects.all()
 	category_list = Category.objects.all()
 	template = loader.get_template('index.html')
+	#context = RequestContext(request, {
+	#	'images': image_list,
+	#	'categories': category_list,
+        #})
 	context = RequestContext(request, {
-		'images': image_list,
-		'categories': category_list,
+		'images': data['images'],
+		'categories': data['categories'],
 		})
 	return HttpResponse(template.render(context))
