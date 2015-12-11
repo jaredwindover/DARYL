@@ -1,4 +1,47 @@
-.image-source,
+.table-content td {
+	width: 100px;
+	text-align: center;
+}
+
 .category-radio-btn {
+	margin: 30px;
+}
+
+.nav-bar {
+	top: 0;
+	left: 0;
+	width: 100%;
+	color: white;
+	position: fixed;
+  	padding-left: 25px;
+	font-weight: bold;
+  	text-transform: uppercase;
+	font-family: Georgia, sans-serif;
+	background: rgba(0,102,204,0.7);
+}
+
+.real-table-row {
+	top:50px;
+}
+
+.nav-bar td p {
+	margin: 0 15px;
+}
+
+.nav-bar td input.submit-btn {
+	margin-left: 100px;
+}
+
+.nav-bar td .btn-style{
+	margin: 0 10px;
+}
+
+.image-source {
 	margin: 10px;
+	width: 100px;
+	height: 100px;
+}
+
+td.img-col-header p {
+	margin-right: 50px;
 }

@@ -29,8 +29,10 @@ def index(request):
                         img.save();
         elif action == 'new_cat':
             name = request.POST['name']
-            Category.objects.create(name=name)
-
+            try:
+                Category.objects.get(name=name)
+            except Category.DoesNotExist:
+                Category.objects.create(name=name)
     image_list = Image.objects.all()
     category_list = Category.objects.all()
     template = loader.get_template('index.html')

@@ -21,17 +21,19 @@
 	 action="/">
 	{% csrf_token %}
 	<table class="image-table">
-	  <tr>
-	    <td>
-	      Image
+	  <tr class="nav-bar" style="background-img:url('{% static 'magnet-banner.png' %}');">
+	    <td class="img-col-header">
+	      <p>Image</p>
 	    </td>
 	    {% for cat in categories %}
-	    <td>
-	      {{ cat.name }}
+	    <td class="col-header">
+	      <p>{{ cat.name }}</p>
 	    </td>
 	    {% endfor %}
 	    <td>
 	     <input
+	     id="submit-btn"
+	     class="btn-style"
          form = "update"
 		 type="submit">
 	    </td>
@@ -41,12 +43,12 @@
           name="action"
           value="new_cat">
         <td>
-            <input form="newCat" type="submit" value="Add new category" >
-            <input form="newCat" type="text" name ="name">
+            <input form="newCat" type="submit" value="Add new category" class="btn-style">
+            <input form="newCat" type="text" name ="name" class="btn-style">
         </td>
 	  </tr>
 	  {% for img in images %}
-	  <tr>
+	  <tr class="table-content">
 	    <td>
 	      <img
 		 class="image-source"
