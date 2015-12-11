@@ -14,7 +14,7 @@ Image Classification Hackathon
         pip install virtualenvwrapper-win
 
         [UBUNTU]
-        pip install virtualenvwrapper 
+        pip install virtualenvwrapper
         #Still UBUNTU, Add the following lines to your .bashrc
         export WORKON_HOME=$HOME/.virtualenvs
         source /usr/local/bin/virtualenvwrapper.sh

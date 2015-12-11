@@ -12,18 +12,23 @@ def test(request):
     return HttpResponse(template.render())
 
 def index(request):
-	data = json.loads(open('../sample.json').read())['images']
-	cnt = 1;
+	data = json.loads(open('../sample.json').read())
+	cnt = 1
+	for d in data:
+		print(d)
+
+	# Category.clean()
+	# Image.clean()
 	for cat in data['categories']:
-		name = cat['name']
+		name = cat
 		Category.objects.create(name=name,category_id=cnt)
-		Category.save()
+		# Category.save()
 		cnt += 1
 	for img in data['images']:
 		filename = img['filename']
 		category = img['category']
 		Image.objects.create(filename=filename,category=category)
-		Image.save()
+		# Image.save()
 	image_list = Image.objects.all()
 	category_list = Category.objects.all()
 	template = loader.get_template('index.html')

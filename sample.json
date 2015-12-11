@@ -1,22 +1,30 @@
 {
     "categories" : [
-	"A",
-	"B",
-	"C",
-	"D"
+	"pandas",
+	"apples",
+	"starbucks",
+	"others"
     ],
     "images" : [
 	{
-	    "filename" : "img1",
-	    "category" : 3
-	},
-	{
-	    "filename" : "img2",
+	    "filename" : "pandas1.jpg",
 	    "category" : 1
 	},
 	{
-	    "filename" : "img3",
-	    "category" : 4
+	    "filename" : "pandas2.jpg",
+	    "category" : 1
+	},
+	{
+	    "filename" : "g1.jpg",
+	    "category" : 2
+	},
+	{
+	    "filename" : "star1.jpg",
+	    "category" : 3
+	},
+	{
+	    "filename" : "g3.jpg",
+	    "category" : 2
 	}
     ]
 }
