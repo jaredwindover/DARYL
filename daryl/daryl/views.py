@@ -15,16 +15,22 @@ def test(request):
 @csrf_protect
 def index(request):
     if request.method == 'POST':
-        prefix = "category_"
-        for k,v in request.POST.iteritems():
-            if k.find(prefix) == 0:
-                filename = k[len(prefix):]
-                categoryName = v
-                img = Image.objects.get(filename=filename)
-                if img.category.name != categoryName:
-                    category = Category.objects.get(name=categoryName)
-                    img.category = category
-                    img.save();
+        action = request.POST['action']
+        if action == 'update':
+            prefix = "category_"
+            for k,v in request.POST.iteritems():
+                if k.find(prefix) == 0:
+                    filename = k[len(prefix):]
+                    categoryName = v
+                    img = Image.objects.get(filename=filename)
+                    if img.category.name != categoryName:
+                        category = Category.objects.get(name=categoryName)
+                        img.category = category
+                        img.save();
+        elif action == 'new_cat':
+            name = request.POST['name']
+            Category.objects.create(name=name)
+
     image_list = Image.objects.all()
     category_list = Category.objects.all()
     template = loader.get_template('index.html')

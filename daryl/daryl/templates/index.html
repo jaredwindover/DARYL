@@ -34,6 +34,10 @@
 		 class="image-source"
 		 src="{% static 'img/'|add:img.filename %}">
 	    </td>
+		<input
+		   type="hidden"
+		   name="action"
+		   value="update">
 	    {% for cat in categories %}
 	    <td>
 	      <input 
