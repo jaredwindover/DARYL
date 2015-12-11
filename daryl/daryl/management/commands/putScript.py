@@ -8,15 +8,23 @@ class Command(BaseCommand):
         def handle(self, *args, **options):
                 data = {
                         'images' : [{
-                                'filename': 'img1.jpg',
+                                'filename': 'g1.jpg',
                                 'categoryIndex': 0
                         },
                         {
-                                'filename': 'img2.jpg',
+                                'filename': 'g2.jpg',
                                 'categoryIndex': 1
                         },
                         {
-                                'filename': 'img3.jpg',
+                                'filename': 'pandas1.jpg',
+                                'categoryIndex': 2
+                        },
+                        {
+                                'filename': 'pandas2.jpg',
+                                'categoryIndex': 2
+                        },
+                        {
+                                'filename': 'star.jpg',
                                 'categoryIndex': 2
                         }],
                         'categories': ['A','B','C']
