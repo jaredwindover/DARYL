@@ -32,6 +32,11 @@ Image Classification Hackathon
     cd daryl
     python manage.py runserver
 
+##To populate database:
+    cd daryl
+    python manage.py migrate
+    python manage.py putScript
+
 ##To view:
 Go to http://127.0.0.1:8000 
 or

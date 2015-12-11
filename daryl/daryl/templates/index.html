@@ -8,30 +8,48 @@
   </head>
   <body>
     <div class="table-container">
-      <table class="image-table">
-	<tr>
-	  <td>
-	    Image
-	  </td>
-	  {% for cat in categories %}
-	  <td>
-	    {{ cat }}
-	  </td>
+      <form 
+	 method="POST"
+	 action="/">
+	{% csrf_token %}
+	<table class="image-table">
+	  <tr>
+	    <td>
+	      Image
+	    </td>
+	    {% for cat in categories %}
+	    <td>
+	      {{ cat.name }}
+	    </td>
+	    {% endfor %}
+	    <td>
+	      <input
+		 type="submit">
+	    </td>
+	  </tr>
+	  {% for img in images %}
+	  <tr>
+	    <td>
+	      <img 
+		 class="image-source"
+		 src="{% static 'img/'|add:img.filename %}">
+	    </td>
+	    {% for cat in categories %}
+	    <td>
+	      <input 
+		 type="radio" 
+		 name="category_{{ img.filename }}"
+		 class="category-radio-btn"
+		 value="{{ cat.name }}"
+		 {% if img.category.name == cat.name %}
+		 checked
+		 {% endif %}>
+	    </td>
+	    {% endfor %}
+	  </tr>
 	  {% endfor %}
-	</tr>
-	{% for img in images %}
-	<tr>
-	  <td>
-	    <img class="image-source" src="{% static 'img/'|add:img.filename %}">
-	  </td>
-	  {% for cat in categories %}
-	  <td>
-	    <input type="radio" name="category_{{ img.filename }}" class="category-radio-btn" value="{{ cat }}">
-	  </td>
-	  {% endfor %}
-	</tr>
-	{% endfor %}
-      </table>
+	</table>
+      </form>
     </div>
   </body>
 </html>

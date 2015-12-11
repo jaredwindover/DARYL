@@ -1,4 +1,5 @@
 import json
+from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.template import RequestContext, loader
@@ -11,34 +12,24 @@ def test(request):
     template = loader.get_template('test.html')
     return HttpResponse(template.render())
 
+@csrf_protect
 def index(request):
-	data = json.loads(open('../sample.json').read())
-	cnt = 1
-	for d in data:
-            print(d)
-
-	# Category.clean()
-	# Image.clean()
-	for cat in data['categories']:
-            print(cat)
-            name = cat
-            Category.objects.create(name=name,category_id=cnt)
-            # Category.save()
-            cnt += 1
-	for img in data['images']:
-            filename = img['filename']
-            category = img['category']
-            Image.objects.create(filename=filename,category=category)
-            # Image.save()
-	image_list = Image.objects.all()
-	category_list = Category.objects.all()
-	template = loader.get_template('index.html')
-	#context = RequestContext(request, {
-	#	'images': image_list,
-	#	'categories': category_list,
-        #})
-	context = RequestContext(request, {
-		'images': data['images'],
-		'categories': data['categories'],
-		})
-	return HttpResponse(template.render(context))
+    if request.method == 'POST':
+        prefix = "category_"
+        for k,v in request.POST.iteritems():
+            if k.find(prefix) == 0:
+                filename = k[len(prefix):]
+                categoryName = v
+                img = Image.objects.get(filename=filename)
+                if img.category.name != categoryName:
+                    category = Category.objects.get(name=categoryName)
+                    img.category = category
+                    img.save();
+    image_list = Image.objects.all()
+    category_list = Category.objects.all()
+    template = loader.get_template('index.html')
+    context = RequestContext(request, {
+    	'images': image_list,
+    	'categories': category_list,
+    })
+    return HttpResponse(template.render(context, request))
